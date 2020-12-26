@@ -19,14 +19,7 @@ public static partial class Extensions
     {
         using (MD5 md5 = MD5.Create())
         {
-            byte[] hashBytes = md5.ComputeHash(@this);
-            var sb = new StringBuilder();
-            foreach (byte bytes in hashBytes)
-            {
-                sb.Append(bytes.ToString("X2"));
-            }
-
-            return sb.ToString();
+            return md5.ComputeHash(@this).ToStringNumbers();
         }
     }
 }

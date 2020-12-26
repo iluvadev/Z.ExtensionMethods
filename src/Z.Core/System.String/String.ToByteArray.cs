@@ -14,9 +14,20 @@ public static partial class Extensions
     /// </summary>
     /// <param name="this">The @this to act on.</param>
     /// <returns>@this as a byte[].</returns>
-    public static byte[] ToByteArray(this string @this)
+    public static byte[] ToByteArrayASCII(this string @this)
     {
         Encoding encoding = Activator.CreateInstance<ASCIIEncoding>();
+        return encoding.GetBytes(@this);
+    }
+
+    /// <summary>
+    ///     A string extension method that converts the @this to a byte array.
+    /// </summary>
+    /// <param name="this">The @this to act on.</param>
+    /// <returns>@this as a byte[].</returns>
+    public static byte[] ToByteArrayUTF8(this string @this)
+    {
+        Encoding encoding = Activator.CreateInstance<UTF8Encoding>();
         return encoding.GetBytes(@this);
     }
 }

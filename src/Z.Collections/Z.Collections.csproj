@@ -102,6 +102,7 @@
     <Compile Include="System.Collections.Generic.IEnumerable[T]\IEnumerable[T].StringJoin.cs" />
     <Compile Include="System.Collections.IDictionary\IDictionary.ToHashtable.cs" />
     <Compile Include="System.Collections.Specialized.NameValueCollection\NameValueCollection.ToDictionary.cs" />
+    <Compile Include="System.ComponentModel.BindingList[T]\BindingList[T].AddRange.cs" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

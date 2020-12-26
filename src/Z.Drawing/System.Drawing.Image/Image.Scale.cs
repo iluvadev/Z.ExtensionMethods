@@ -9,6 +9,7 @@ using System;
 #if !NETSTANDARD
 using System.Drawing;
 using System.Drawing.Drawing2D;
+using System.Drawing.Imaging;
 #endif
 
 public static partial class Extensions
@@ -17,49 +18,34 @@ public static partial class Extensions
     /// <summary>
     ///     An Image extension method that scales an image to the specific ratio.
     /// </summary>
-    /// <param name="this">The @this to act on.</param>
+    /// <param name="image">The @this to act on.</param>
     /// <param name="ratio">The ratio.</param>
     /// <returns>The scaled image to the specific ratio.</returns>
-    public static Image Scale(this Image @this, double ratio)
+    public static Image Scale(this Image image, double ratio)
     {
-        int width = Convert.ToInt32(@this.Width*ratio);
-        int height = Convert.ToInt32(@this.Height*ratio);
+        int width = Convert.ToInt32(image.Width*ratio);
+        int height = Convert.ToInt32(image.Height*ratio);
 
-        var r = new Bitmap(width, height);
-
-        using (Graphics g = Graphics.FromImage(r))
-        {
-            g.CompositingQuality = CompositingQuality.HighQuality;
-            g.SmoothingMode = SmoothingMode.HighQuality;
-            g.InterpolationMode = InterpolationMode.HighQualityBicubic;
-
-            g.DrawImage(@this, 0, 0, width, height);
-        }
-
-        return r;
+        return Resize(image, width, height);
     }
 
     /// <summary>
-    ///     An Image extension method that scales an image to a specific with and height.
+    /// Scales the image to the specified MaxWidth and Height.
     /// </summary>
-    /// <param name="this">The @this to act on.</param>
-    /// <param name="width">The width.</param>
-    /// <param name="height">The height.</param>
-    /// <returns>The scaled image to the specific width and height.</returns>
-    public static Image Scale(this Image @this, int width, int height)
+    /// <param name="image">The image.</param>
+    /// <param name="maxWidth">The maximum width.</param>
+    /// <param name="maxHeight">The maximum height.</param>
+    /// <returns></returns>
+    public static Image Scale(this Image image, int maxWidth, int maxHeight)
     {
-        var r = new Bitmap(width, height);
+        var ratioX = (double)maxWidth / image.Width;
+        var ratioY = (double)maxHeight / image.Height;
+        var ratio = Math.Min(ratioX, ratioY);
 
-        using (Graphics g = Graphics.FromImage(r))
-        {
-            g.CompositingQuality = CompositingQuality.HighQuality;
-            g.SmoothingMode = SmoothingMode.HighQuality;
-            g.InterpolationMode = InterpolationMode.HighQualityBicubic;
+        var newWidth = (int)(image.Width * ratio);
+        var newHeight = (int)(image.Height * ratio);
 
-            g.DrawImage(@this, 0, 0, width, height);
-        }
-
-        return r;
+        return Resize(image, newWidth, newHeight);
     }
 #endif
 }

@@ -8,19 +8,22 @@ using System;
 
 public static partial class Extensions
 {
+    
     /// <summary>
-    ///     A DateTime extension method that ages the given this.
+    /// Retorna l'edat en anys entre la data actual i la final
     /// </summary>
     /// <param name="this">The @this to act on.</param>
-    /// <returns>An int.</returns>
-    public static int Age(this DateTime @this)
+    /// <param name="finalDate">The final date.</param>
+    /// <returns></returns>
+    public static int Age(this DateTime @this, DateTime? finalDate)
     {
-        if (DateTime.Today.Month < @this.Month ||
-            DateTime.Today.Month == @this.Month &&
-            DateTime.Today.Day < @this.Day)
-        {
-            return DateTime.Today.Year - @this.Year - 1;
-        }
-        return DateTime.Today.Year - @this.Year;
+        // Save today's date.
+        var today = finalDate ?? DateTime.Today;
+        // Calculate the age.
+        var age = today.Year - @this.Year;
+        // Go back to the year the person was born in case of a leap year
+        if (@this > today.AddYears(-age)) age--;
+
+        return age;
     }
 }

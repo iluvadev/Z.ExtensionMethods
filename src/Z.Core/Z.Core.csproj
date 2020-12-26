@@ -90,9 +90,11 @@
     <Compile Include="System.Boolean\Boolean.IfTrue.cs" />
     <Compile Include="System.Boolean\Boolean.ToBinary.cs" />
     <Compile Include="System.Boolean\Boolean.ToString.cs" />
+    <Compile Include="System.ByteArray\ByteArray.Hash.cs" />
     <Compile Include="System.ByteArray\ByteArray.Resize.cs" />
     <Compile Include="System.ByteArray\ByteArray.ToImage.cs" />
     <Compile Include="System.ByteArray\ByteArray.ToMemoryStream.cs" />
+    <Compile Include="System.ByteArray\ByteArray.ToStringNumbers.cs" />
     <Compile Include="System.ByteArray\System.Convert\ByteArray.ToBase64CharArray.cs" />
     <Compile Include="System.ByteArray\System.Convert\ByteArray.ToBase64String.cs" />
     <Compile Include="System.ByteArray\System.Web.HttpServerUtility\ByteArray.UrlTokenEncode.cs" />
@@ -497,6 +499,7 @@
     <Compile Include="System.SByte\_CoreObject\SByte.In.cs" />
     <Compile Include="System.SByte\_CoreObject\SByte.NotIn.cs" />
     <Compile Include="System.Single\System.Math\Single.Abs.cs" />
+    <Compile Include="System.Single\System.Math\Single.Lerp.cs" />
     <Compile Include="System.Single\System.Math\Single.Max.cs" />
     <Compile Include="System.Single\System.Math\Single.Min.cs" />
     <Compile Include="System.Single\System.Math\Single.Sign.cs" />
@@ -509,6 +512,7 @@
     <Compile Include="System.Single\_CoreObject\Single.InRange.cs" />
     <Compile Include="System.Single\_CoreObject\Single.NotIn.cs" />
     <Compile Include="System.String\String.EqualsIgnoreCase.cs" />
+    <Compile Include="System.String\String.Hash.cs" />
     <Compile Include="System.String\String.ToValidDateTimeOrNull.cs" />
     <Compile Include="System.String\String.Br2Nl.cs" />
     <Compile Include="System.String\String.IsPalindrome.cs" />
@@ -696,6 +700,9 @@
     <Compile Include="TArray\System.Array\TArray.FindLastIndex.cs" />
     <Compile Include="TArray\System.Array\TArray.ForEach.cs" />
     <Compile Include="TArray\System.Array\TArray.TrueForAll.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="System.Int32\System.Math\Int32.Mod.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

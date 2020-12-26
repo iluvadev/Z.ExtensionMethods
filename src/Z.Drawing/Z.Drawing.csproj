@@ -64,11 +64,24 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="System.Drawing.Color\System.Drawing.ColorTranslator\Color.Lerp.cs" />
     <Compile Include="System.Drawing.Color\System.Drawing.ColorTranslator\Color.ToHtml.cs" />
     <Compile Include="System.Drawing.Color\System.Drawing.ColorTranslator\Color.ToOle.cs" />
     <Compile Include="System.Drawing.Color\System.Drawing.ColorTranslator\Color.ToWin32.cs" />
     <Compile Include="System.Drawing.Image\Image.Cut.cs" />
+    <Compile Include="System.Drawing.Image\Image.Resize.cs" />
     <Compile Include="System.Drawing.Image\Image.Scale.cs" />
+    <Compile Include="System.Drawing.Image\Image.ToByteArray.cs" />
+    <Compile Include="System.Drawing.Image\Image.ToGrayScale.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Z.Core\Z.Core.csproj">
+      <Project>{02f009f8-720b-4cbd-98ff-f2c33f4441d5}</Project>
+      <Name>Z.Core</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="System.Drawing.Color\System.Drawing.ColorTranslator\Color.ChangeColorBrightness.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

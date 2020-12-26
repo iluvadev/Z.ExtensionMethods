@@ -99,6 +99,7 @@
     <Compile Include="System.IO.FileInfo\FileInfo.GetFileNameWithoutExtension.cs" />
     <Compile Include="System.IO.FileInfo\FileInfo.GetPathRoot.cs" />
     <Compile Include="System.IO.FileInfo\FileInfo.HasExtension.cs" />
+    <Compile Include="System.IO.FileInfo\FileInfo.IsFileLocked.cs" />
     <Compile Include="System.IO.FileInfo\FileInfo.IsPathRooted.cs" />
     <Compile Include="System.IO.FileInfo\FileInfo.ReadAllBytes.cs" />
     <Compile Include="System.IO.FileInfo\FileInfo.ReadAllLines.cs" />
@@ -115,6 +116,12 @@
     <Compile Include="System.IO.Stream\Stream.ReadToEnd.cs" />
     <Compile Include="System.IO.Stream\Stream.ToByteArray.cs" />
     <Compile Include="System.IO.Stream\Stream.ToMD5Hash.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Z.Core\Z.Core.csproj">
+      <Project>{02f009f8-720b-4cbd-98ff-f2c33f4441d5}</Project>
+      <Name>Z.Core</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

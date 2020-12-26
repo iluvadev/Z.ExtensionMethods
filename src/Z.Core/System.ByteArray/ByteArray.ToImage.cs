@@ -19,10 +19,10 @@ public static partial class Extensions
     /// <returns>@this as an Image.</returns>
     public static Image ToImage(this byte[] @this)
     {
-        using (var ms = new MemoryStream(@this))
-        {
-            return Image.FromStream(ms);
-        }
+        if (@this.Length > 0)
+            using (var ms = new MemoryStream(@this))
+                return Image.FromStream(ms);
+        return null;
     }
 #endif
 }
